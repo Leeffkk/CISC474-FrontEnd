@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,17 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Group5FrontEnd';
   activeClass = 'active';
-  activeClassR = 'activeClassR';
-  dark = true;
+  get loggedIn():boolean{
+    return this.authSvc.loggedIn;
+  }
+  constructor(public authSvc:AuthService) {
+    authSvc.authorize();
+  }
+
+
+  signout(){
+    this.authSvc.logout();
+    return false;
+  }
 }
+
