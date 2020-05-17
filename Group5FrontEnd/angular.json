@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Group5FrontEnd": {
+    "ExampleUI": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Group5FrontEnd",
+            "outputPath": "dist/ExampleUI",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -66,18 +66,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Group5FrontEnd:build"
+            "browserTarget": "ExampleUI:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "Group5FrontEnd:build:production"
+              "browserTarget": "ExampleUI:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Group5FrontEnd:build"
+            "browserTarget": "ExampleUI:build"
           }
         },
         "test": {
@@ -114,15 +114,19 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "Group5FrontEnd:serve"
+            "devServerTarget": "ExampleUI:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "Group5FrontEnd:serve:production"
+              "devServerTarget": "ExampleUI:serve:production"
             }
           }
         }
       }
-    }},
-  "defaultProject": "Group5FrontEnd"
+    }
+  },
+  "defaultProject": "ExampleUI",
+  "cli": {
+    "analytics": false
+  }
 }
