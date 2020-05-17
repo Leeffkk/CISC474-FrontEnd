@@ -7,7 +7,7 @@ import { map, catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
-/*  private path='http://localhost:3000/api/security/'
+  private path='http://localhost:3000/api/security/'
   private _token:string=null;
   CurrentUser: ReplaySubject<string>=new ReplaySubject<string>();
 
@@ -60,5 +60,5 @@ export class AuthService {
   logout(){
     this.token=null;
     this.CurrentUser.next(null);
-  }*/
+  }
 }

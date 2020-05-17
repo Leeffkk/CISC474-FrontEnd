@@ -13,11 +13,11 @@ export class AppComponent {
     return false;
     //return this.authSvc.loggedIn;
   }
-  /*constructor(public authSvc:AuthService) {
-    authSvc.authorize();
+  constructor(public authSvc:AuthService) {
+    //authSvc.authorize();
   }
 
-*/
+
   signout(){
     //this.authSvc.logout();
     return false;
