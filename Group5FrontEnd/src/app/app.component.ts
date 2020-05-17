@@ -8,18 +8,18 @@ import { AuthService } from './service/auth.service';
 })
 
 export class AppComponent {
-  title = 'Group5FrontEnd';
-  activeClass = 'active';
+  title = 'Group5';
   get loggedIn():boolean{
-    return this.authSvc.loggedIn;
+    return false;
+    //return this.authSvc.loggedIn;
   }
-  constructor(public authSvc:AuthService) {
+  /*constructor(public authSvc:AuthService) {
     authSvc.authorize();
   }
 
-
+*/
   signout(){
-    this.authSvc.logout();
+    //this.authSvc.logout();
     return false;
   }
 }
