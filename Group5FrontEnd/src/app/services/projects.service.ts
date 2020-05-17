@@ -13,4 +13,10 @@ export class ProjectsService {
   getProjects(): Observable<any>{
     return this.http.get(this.path+'semesters');
   }
+  addProjects(){
+    this.http.post(this.path,{});
+  }
+  deleteProject(){
+    this.http.delete(this.path+':id',{});
+  }
 }
