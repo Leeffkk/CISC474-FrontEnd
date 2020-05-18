@@ -51,7 +51,10 @@ export class UpdateProjectComponent implements OnInit {
       return;
     }
     this.loading=true;
-    this.projSev.UpdateProject(this.index,this.updateForm.controls.projectname.value,this.updateForm.controls.projecturl.value,this.updateForm.controls.groupmember.value,this.updateForm.controls.description.value).subscribe(response=>{
+    this.projSev.UpdateProject(this.index,this.updateForm.controls.projectname.value,
+      this.updateForm.controls.projecturl.value,
+      "{"+this.updateForm.controls.groupmember.value+"}",
+      this.updateForm.controls.description.value).subscribe(response=>{
       this.router.navigate([this.returnUrl]);
     },err=>{this.submitted=false;this.loading=false;this.error=err.message||err;});
   }
