@@ -9,13 +9,17 @@ import { ProjectsService } from 'src/app/services/projects.service';
   styleUrls: ['./updateproject.component.scss']
 })
 export class UpdateProjectComponent implements OnInit {
-
+  Infor: any[] = [ ];
   updateForm: FormGroup;
   loading =false;
   submitted=false;
   returnUrl: string;
   error: string;
   index: string;
+  url: string;
+  name: string;
+  groupMember: string;
+  descript: string;
 
   constructor(private formBuilder: FormBuilder,private route: ActivatedRoute,private router: Router,private projSev: ProjectsService) {
    }
@@ -28,6 +32,16 @@ export class UpdateProjectComponent implements OnInit {
       description: ['',Validators.required]
     });
     this.index=this.projSev.GetIndex();
+    this.name=this.projSev.GetName();
+    this.url=this.projSev.GetUrl();
+    this.groupMember=this.projSev.GetGroupM();
+    this.descript=this.projSev.GetDescript();
+    this.Infor = [{
+      "name": this.name,
+      "description": this.descript,
+      "url": this.url,
+      "groupMembers": this.groupMember
+  } ];
     this.returnUrl=this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 

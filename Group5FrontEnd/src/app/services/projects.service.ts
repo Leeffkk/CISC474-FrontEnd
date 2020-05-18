@@ -10,6 +10,10 @@ export class ProjectsService {
   private path="http://localhost:3000/api/projects/"
   constructor(private http:HttpClient) { }
   index: string;
+  Name: string;
+  URL: string;
+  GroupM: string;
+  Descript: string;
 
   getProjects(): Observable<any>{
     return this.http.get(this.path+'getProjects');
@@ -31,5 +35,23 @@ export class ProjectsService {
   }
   GetIndex() {
     return this.index;
+  }
+  SendInfo(name, url, groupmember, description) {
+    this.Name=name;
+    this.URL=url;
+    this.GroupM=groupmember;
+    this.Descript=description;
+  }
+  GetName() {
+    return this.Name;
+  }
+  GetUrl() {
+    return this.URL;
+  }
+  GetGroupM() {
+    return this.GroupM;
+  }
+  GetDescript() {
+    return this.Descript;
   }
 }

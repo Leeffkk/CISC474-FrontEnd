@@ -8,14 +8,7 @@ import { ProjectsService } from 'src/app/services/projects.service';
 })
 export class MyprojectsComponent implements OnInit {
 
-  Projects: any[] = [ {
-    "_id": "5ec20f161c98d15820ef939a",
-    "name": "dklajfklae",
-    "description": "hello",
-    "url": "sdafklajekrja",
-    "groupMembers": "{dfaadsf,seraera,e,ra,erae}",
-    "posts": null
-}];
+  Projects: any[] = [ ];
   Attribute: any[] = [ ];
   selectedproject = -1;
   error: string;
@@ -45,9 +38,9 @@ export class MyprojectsComponent implements OnInit {
       })}
       );
   }
-  update(id){
+  update(id, name, url, groupmember, description){
     this.projSvc.SetIndex(id);
-    
+    this.projSvc.SendInfo(name, url, groupmember, description);
   }
   ngOnInit(): void {
   }

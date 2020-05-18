@@ -16,7 +16,6 @@ export class AddprojectComponent implements OnInit {
   submitted=false;
   returnUrl: string;
   error: string;
-  groupMember: string;
 
 
   constructor(private formBuilder: FormBuilder,private route: ActivatedRoute,private router: Router,private projSev: ProjectsService) {
