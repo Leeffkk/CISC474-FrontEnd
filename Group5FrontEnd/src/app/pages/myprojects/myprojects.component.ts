@@ -13,8 +13,8 @@ export class MyprojectsComponent implements OnInit {
   selectedproject = -1;
 
   constructor(private projSvc:ProjectsService) { 
-    projSvc.getProjects().subscribe(result=>{
-      this.Projects=result.data.semesters;
+    projSvc.getProject().subscribe(result=>{
+      this.Projects=result.data;
     })
   }
 

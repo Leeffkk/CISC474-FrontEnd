@@ -25,7 +25,7 @@ export class AddprojectComponent implements OnInit {
       projectname: ['',Validators.required],
       projecturl: ['',Validators.required],
       groupmember: ['',Validators.required],
-      discription: ['',Validators.required]
+      description: ['',Validators.required]
     });
     this.returnUrl=this.route.snapshot.queryParams['returnUrl'] || '/';
   }
@@ -36,7 +36,7 @@ export class AddprojectComponent implements OnInit {
       return;
     }
     this.loading=true;
-    this.projSev.addProjects(this.projectForm.controls.projectname.value,this.projectForm.controls.projecturl.value,this.projectForm.controls.groupmember.value,this.projectForm.controls.discription.value).subscribe(response=>{
+    this.projSev.addProjects(this.projectForm.controls.projectname.value,this.projectForm.controls.projecturl.value,this.projectForm.controls.groupmember.value,this.projectForm.controls.description.value).subscribe(response=>{
       this.router.navigate([this.returnUrl]);
     },err=>{this.submitted=false;this.loading=false;this.error=err.message||err;});
   }

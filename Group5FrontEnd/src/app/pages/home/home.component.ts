@@ -10,24 +10,29 @@ export class HomeComponent implements OnInit {
   Projects: any[] = [ ];
   Attribute: any[] = [ ];
   selectedproject = -1;
+  index = -1;
 
   constructor(private projSvc:ProjectsService) { 
-    projSvc.getSemesters().subscribe(result=>{
-      this.Projects=result.data;
-    })
+     projSvc.getProjects().subscribe(result=>{
+       this.Projects=result.data;
+     })
   }
 
-  showDetail(index, project){
-    console.log(index);
+  showDetail(id,project){
+    console.log(id);
     console.log(project);
-    if (this.selectedproject === index){
+    this.index = id;
+    if (this.selectedproject === this.index){
       this.selectedproject = -1;
     }
     else {
-      this.selectedproject = index;
+      this.selectedproject = this.index;
     }
   }
 
+  try(){
+    console.log();
+  }
   ngOnInit(): void {
   }
 

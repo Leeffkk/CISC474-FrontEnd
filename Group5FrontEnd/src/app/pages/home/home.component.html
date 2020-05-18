@@ -1,3 +1,25 @@
+<!---->
+<div>
+    <h2>All Project</h2>
+    <div class="container-fluid">
+        <table class="table table-responsive">
+            <thead>
+                <th>Project Name</th>
+            </thead>
+        </table>
+        <tbody>
+            <li colspan=3 *ngFor = 'let item of Projects'>
+                {{item.name}} <button (click)= showDetail(index,item)> click</button>
+                <tr>
+                    <td [hidden]='index!=selectedproject'>
+                        <p>Description: {{item.description}}</p>
+                        <p><a href='{{item.url}}' target='_new'>See Webpage</a> </p>
+                    </td>
+                </tr>
+            </li>
+        </tbody>
+    </div>
+</div>
 <!--
 <div>
     <h2>All Project</h2>
@@ -8,9 +30,9 @@
             </thead>
         </table>
         <tbody>
-            <template ngFor let-track [ngForof]="Projects" let-index="index">
-                <tr (click)='showDetail(index,track)' class="clickable">
-                    <td>{{projects.name}}</td>
+            <ng-template ngFor let- [ngForof]="Projects" let-index="index">
+                <tr (click)='showDetail(index,projects)' class="clickable">
+                    <td>{{Projects.name}}</td>
                 </tr>
                 <tr>
                     <td colspan=3 class="detail">
@@ -22,7 +44,7 @@
                         </div>
                     </td>
                 </tr>
-            </template>
+            </ng-template>
         </tbody>
     </div>
 </div>
