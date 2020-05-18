@@ -4,7 +4,7 @@
 <form [formGroup]="updateForm" (ngSubmit)="submit()">
     <div class="form-group">
         <label for="projectname">Project's Name</label>
-        <input type="text" formControlName="updatename" class="form-control" [ngClass]="{ 'is-invalid': submitted && updateForm.controls.projectname.errors }" />
+        <input type="text" formControlName="projectname" class="form-control" [ngClass]="{ 'is-invalid': submitted && updateForm.controls.projectname.errors }" />
         <div *ngIf="submitted && updateForm.controls.projectname.errors" class="invalid-feedback">
             <div *ngIf="updateForm.controls.projectname.errors.required">Project's name is required</div>
         </div>
@@ -26,7 +26,7 @@
     <div class="form-group">
         <label for="description">Description</label>
         <input type="text" formControlName="description" class="form-control" [ngClass]="{ 'is-invalid': submitted && updateForm.controls.description.errors }" />
-        <div *ngIf="submitted && updateForm.controls.discription.errors" class="invalid-feedback">
+        <div *ngIf="submitted && updateForm.controls.description.errors" class="invalid-feedback">
             <div *ngIf="updateForm.controls.description.errors.required">description is required</div>
         </div>
     </div>

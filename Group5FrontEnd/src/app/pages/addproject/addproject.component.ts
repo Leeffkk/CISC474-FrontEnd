@@ -16,6 +16,8 @@ export class AddprojectComponent implements OnInit {
   submitted=false;
   returnUrl: string;
   error: string;
+  groupMember: string;
+
 
   constructor(private formBuilder: FormBuilder,private route: ActivatedRoute,private router: Router,private projSev: ProjectsService) {
    }
@@ -36,7 +38,10 @@ export class AddprojectComponent implements OnInit {
       return;
     }
     this.loading=true;
-    this.projSev.addProjects(this.projectForm.controls.projectname.value,this.projectForm.controls.projecturl.value,this.projectForm.controls.groupmember.value,this.projectForm.controls.description.value).subscribe(response=>{
+    this.projSev.addProjects(this.projectForm.controls.projectname.value,
+      this.projectForm.controls.projecturl.value,
+      this.projectForm.controls.groupmember.value.substring(1, this.projectForm.controls.groupmember.value.length-1),
+      this.projectForm.controls.description.value).subscribe(response=>{
       this.router.navigate([this.returnUrl]);
     },err=>{this.submitted=false;this.loading=false;this.error=err.message||err;});
   }
