@@ -9,6 +9,7 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
+
   registerForm: FormGroup;
   loading =false;
   submitted=false;
@@ -23,6 +24,7 @@ export class RegisterComponent implements OnInit {
       username: ['',Validators.required],
       password: ['',Validators.required]
     });
+    this.returnUrl=this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
   regist(){
@@ -31,7 +33,8 @@ export class RegisterComponent implements OnInit {
       return;
     }
     this.loading=true;
-    this.authSvc.regist(this.registerForm.controls.username.value,this.registerForm.controls.password.value).subscribe(
-      err=>{this.submitted=false;this.loading=false;this.error=err.message||err;});
+    this.authSvc.regist(this.registerForm.controls.username.value,this.registerForm.controls.password.value).subscribe(response=>{
+      this.router.navigate([this.returnUrl]);
+    },err=>{this.submitted=false;this.loading=false;this.error=err.message||err;});
   }
 }
