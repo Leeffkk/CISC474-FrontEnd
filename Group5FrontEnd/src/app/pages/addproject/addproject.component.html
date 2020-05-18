@@ -1,2 +1,40 @@
 <!--<div *ngIf="error" class="alert alert-danger">{{error}}</div>-->
+<div *ngIf="error" class="alert alert-danger">{{error}}</div>
 <h2>Add Project</h2>
+<form [formGroup]="projectForm" (ngSubmit)="submit()">
+    <div class="form-group">
+        <label for="projectname">Project's Name</label>
+        <input type="text" formControlName="projectname" class="form-control" [ngClass]="{ 'is-invalid': submitted && projectForm.controls.projectname.errors }" />
+        <div *ngIf="submitted && projectForm.controls.projectname.errors" class="invalid-feedback">
+            <div *ngIf="projectForm.controls.projectname.errors.required">Project's name is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="projecturl">Project's Url</label>
+        <input type="url" formControlName="projecturl" class="form-control" [ngClass]="{ 'is-invalid': submitted && projectForm.controls.projecturl.errors }" />
+        <div *ngIf="submitted && projectForm.controls.projecturl.errors" class="invalid-feedback">
+            <div *ngIf="projectForm.controls.projecturl.errors.required">Project's Url is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="groupmember">Group Member</label>
+        <input type="text" formControlName="groupmember" class="form-control" [ngClass]="{ 'is-invalid': submitted && projectForm.controls.groupmember.errors }" />
+        <div *ngIf="submitted && projectForm.controls.groupmember.errors" class="invalid-feedback">
+            <div *ngIf="projectForm.controls.groupmember.errors.required">Project's Url is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="discription">Discription</label>
+        <input type="text" formControlName="Discription" class="form-control" [ngClass]="{ 'is-invalid': submitted && projectForm.controls.discription.errors }" />
+        <div *ngIf="submitted && projectForm.controls.discription.errors" class="invalid-feedback">
+            <div *ngIf="projectForm.controls.discription.errors.required">Project's Url is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Submit
+        </button>
+        <a routerLink="/home" class="btn btn-link">Cancel</a>
+    </div>
+</form>

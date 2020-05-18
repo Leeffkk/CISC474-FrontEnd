@@ -10,6 +10,7 @@ import { AddprojectComponent } from './pages/addproject/addproject.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TokenInterceptorService } from './services/token-interceptor.service';
+import { MyprojectsComponent } from './pages/myprojects/myprojects.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    AddprojectComponent
+    AddprojectComponent,
+    MyprojectsComponent
   ],
   imports: [
     BrowserModule,

@@ -2,18 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { ProjectsService } from 'src/app/services/projects.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-myprojects',
+  templateUrl: './myprojects.component.html',
+  styleUrls: ['./myprojects.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class MyprojectsComponent implements OnInit {
+
   Projects: any[] = [ ];
   Attribute: any[] = [ ];
   selectedproject = -1;
 
   constructor(private projSvc:ProjectsService) { 
-    projSvc.getSemesters().subscribe(result=>{
-      this.Projects=result.data;
+    projSvc.getProjects().subscribe(result=>{
+      this.Projects=result.data.semesters;
     })
   }
 

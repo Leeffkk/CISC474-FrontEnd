@@ -10,11 +10,14 @@ export class ProjectsService {
   private path="http://localhost:3000/api/projects/"
   constructor(private http:HttpClient) { }
 
-  getProjects(): Observable<any>{
+  getSemesters(): Observable<any>{
     return this.http.get(this.path+'semesters');
   }
-  addProjects(){
-    this.http.post(this.path,{});
+  getProjects(): Observable<any>{
+    return this.http.get(this.path+'semester');
+  }
+  addProjects(email: string, url: string, groupmember: string, discription: string): Observable<any>{
+    return this.http.post(this.path,{email: email, url: url, groupmember: groupmember, discription: discription});
   }
   deleteProject(){
     this.http.delete(this.path+':id',{});

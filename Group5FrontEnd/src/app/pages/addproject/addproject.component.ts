@@ -10,9 +10,34 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./addproject.component.scss']
 })
 export class AddprojectComponent implements OnInit {
-  constructor() { }
+
+  projectForm: FormGroup;
+  loading =false;
+  submitted=false;
+  returnUrl: string;
+  error: string;
+
+  constructor(private formBuilder: FormBuilder,private route: ActivatedRoute,private router: Router,private projSev: ProjectsService) {
+   }
 
   ngOnInit(): void {
+    this.projectForm=this.formBuilder.group({
+      projectname: ['',Validators.required],
+      projecturl: ['',Validators.required],
+      groupmember: ['',Validators.required],
+      discription: ['',Validators.required]
+    });
+    this.returnUrl=this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
+  submit(){
+    this.submitted=true;
+    if (this.projectForm.invalid){
+      return;
+    }
+    this.loading=true;
+    this.projSev.addProjects(this.projectForm.controls.projectname.value,this.projectForm.controls.projecturl.value,this.projectForm.controls.groupmember.value,this.projectForm.controls.discription.value).subscribe(response=>{
+      this.router.navigate([this.returnUrl]);
+    },err=>{this.submitted=false;this.loading=false;this.error=err.message||err;});
+  }
 }
