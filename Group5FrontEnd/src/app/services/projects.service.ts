@@ -19,7 +19,7 @@ export class ProjectsService {
   addProjects(name: string, url: string, groupmember: string, description: string): Observable<any>{
     return this.http.post(this.path,{name: name, url: url, groupMembers: groupmember, description: description});
   }
-  deleteProject(){
-    this.http.delete(this.path+':id',{});
+  deleteProject(id: string){
+    this.http.delete(this.path+'',{id: id});
   }
 }

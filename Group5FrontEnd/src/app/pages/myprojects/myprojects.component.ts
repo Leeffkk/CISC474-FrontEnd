@@ -8,7 +8,14 @@ import { ProjectsService } from 'src/app/services/projects.service';
 })
 export class MyprojectsComponent implements OnInit {
 
-  Projects: any[] = [ ];
+  Projects: any[] = [ {
+    "_id": "5ec20f161c98d15820ef939a",
+    "name": "dklajfklae",
+    "description": null,
+    "url": "sdafklajekrja",
+    "groupMembers": "{dfaadsf,seraera,e,ra,erae}",
+    "posts": null
+}];
   Attribute: any[] = [ ];
   selectedproject = -1;
 
@@ -29,6 +36,9 @@ export class MyprojectsComponent implements OnInit {
     }
   }
 
+  delate(id: string){
+    this.projSvc.deleteProject(id);
+  }
   ngOnInit(): void {
   }
 

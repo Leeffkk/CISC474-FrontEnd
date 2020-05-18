@@ -7,9 +7,10 @@
             </thead>
         <tbody>
             <li colspan=3 *ngFor = 'let item of Projects'>
-                {{item.name}}
-                Description: {{item.description}}
+                {{item.name}}   Description: {{item.description}}
                 <a href='{{item.url}}' target='_new'>See Webpage</a>
+                <button>update</button>
+                <button (click)='delate(item._id)'>delete</button>
             </li>
         </tbody>
     </table>
