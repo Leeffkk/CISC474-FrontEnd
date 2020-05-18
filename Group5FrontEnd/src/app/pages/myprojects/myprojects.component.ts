@@ -19,6 +19,7 @@ export class MyprojectsComponent implements OnInit {
   Attribute: any[] = [ ];
   selectedproject = -1;
 
+  index=-1;
   constructor(private projSvc:ProjectsService) { 
     projSvc.getProject().subscribe(result=>{
       this.Projects=result.data;
@@ -36,8 +37,12 @@ export class MyprojectsComponent implements OnInit {
     }
   }
 
-  delate(id: string){
-    this.projSvc.deleteProject(id);
+  delate(item){
+    //let index = this.Projects.indexOf(item);
+    this.projSvc.deleteProject(item._id.value);
+  }
+  update(){
+
   }
   ngOnInit(): void {
   }
