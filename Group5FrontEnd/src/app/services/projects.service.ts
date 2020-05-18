@@ -21,7 +21,7 @@ export class ProjectsService {
     return this.http.post(this.path,{name: name, url: url, groupMembers: groupmember, description: description});
   }
   UpdateProject(id, name: string, url: string, groupmember: string, description: string): Observable<any>{
-    return this.http.put(this.path+'',{id: id});
+    return this.http.put(this.path+'',{id: id, name: name, url: url, groupMembers: groupmember, description: description});
   }
   deleteProject(id): Observable<any>{
     return this.http.post(this.path+'deleteProject',{id: id});
