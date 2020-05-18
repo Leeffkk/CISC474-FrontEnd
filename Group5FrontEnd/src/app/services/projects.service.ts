@@ -9,6 +9,7 @@ export class ProjectsService {
 
   private path="http://localhost:3000/api/projects/"
   constructor(private http:HttpClient) { }
+  index: string;
 
   getProjects(): Observable<any>{
     return this.http.get(this.path+'getProjects');
@@ -19,10 +20,16 @@ export class ProjectsService {
   addProjects(name: string, url: string, groupmember: string, description: string): Observable<any>{
     return this.http.post(this.path,{name: name, url: url, groupMembers: groupmember, description: description});
   }
-  UpdateProject(id): Observable<any>{
+  UpdateProject(id, name: string, url: string, groupmember: string, description: string): Observable<any>{
     return this.http.put(this.path+'',{id: id});
   }
   deleteProject(id): Observable<any>{
     return this.http.post(this.path+'deleteProject',{id: id});
+  }
+  SetIndex(id) {
+    this.index = id;
+  }
+  GetIndex() {
+    return this.index;
   }
 }

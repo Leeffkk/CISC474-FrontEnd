@@ -46,11 +46,8 @@ export class MyprojectsComponent implements OnInit {
       );
   }
   update(id){
-    this.projSvc.UpdateProject(id).subscribe(err=>{this.error=err.message||err;
-      this.projSvc.getProject().subscribe(result=>{
-        this.Projects=result.data;
-      })}
-    );
+    this.projSvc.SetIndex(id);
+    
   }
   ngOnInit(): void {
   }

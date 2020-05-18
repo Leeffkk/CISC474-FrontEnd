@@ -11,6 +11,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { MyprojectsComponent } from './pages/myprojects/myprojects.component';
+import { UpdateProjectComponent } from './pages/updateproject/updateproject.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { MyprojectsComponent } from './pages/myprojects/myprojects.component';
     LoginComponent,
     RegisterComponent,
     AddprojectComponent,
-    MyprojectsComponent
+    MyprojectsComponent,
+    UpdateProjectComponent
   ],
   imports: [
     BrowserModule,
