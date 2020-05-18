@@ -20,7 +20,7 @@
         <label for="groupmember">Group Member</label>
         <input type="text" formControlName="groupmember" class="form-control" [ngClass]="{ 'is-invalid': submitted && projectForm.controls.groupmember.errors }" />
         <div *ngIf="submitted && projectForm.controls.groupmember.errors" class="invalid-feedback">
-            <div *ngIf="projectForm.controls.groupmember.errors.required">Project's Url is required</div>
+            <div *ngIf="projectForm.controls.groupmember.errors.required">Group member is required</div>
         </div>
     </div>
     <div class="form-group">
