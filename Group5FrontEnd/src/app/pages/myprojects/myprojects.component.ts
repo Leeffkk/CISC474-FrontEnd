@@ -37,9 +37,9 @@ export class MyprojectsComponent implements OnInit {
     }
   }
 
-  delate(item){
+  delate(id){
     //let index = this.Projects.indexOf(item);
-    this.projSvc.deleteProject(item._id.value);
+    this.projSvc.deleteProject(id);
   }
   update(){
 

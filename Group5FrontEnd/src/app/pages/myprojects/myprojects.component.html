@@ -10,7 +10,7 @@
                 {{item.name}}   Description: {{item.description}}
                 <a href='{{item.url}}' target='_new'>See Webpage</a>
                 <button (click)='update()'>update</button>
-                <button class="btn-danger" (click)='delate(item)'>delete</button>
+                <button class="btn-danger" (click)='delate(item._id)'>delete</button>
             </li>
         </tbody>
     </table>
