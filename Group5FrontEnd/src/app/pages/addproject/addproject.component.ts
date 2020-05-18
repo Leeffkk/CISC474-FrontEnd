@@ -40,7 +40,7 @@ export class AddprojectComponent implements OnInit {
     this.loading=true;
     this.projSev.addProjects(this.projectForm.controls.projectname.value,
       this.projectForm.controls.projecturl.value,
-      this.projectForm.controls.groupmember.value.substring(1, this.projectForm.controls.groupmember.value.length-1),
+      "{"+this.projectForm.controls.groupmember.value+"}",
       this.projectForm.controls.description.value).subscribe(response=>{
       this.router.navigate([this.returnUrl]);
     },err=>{this.submitted=false;this.loading=false;this.error=err.message||err;});
