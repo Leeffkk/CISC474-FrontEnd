@@ -10,7 +10,6 @@ export class HomeComponent implements OnInit {
   Projects: any[] = [ ];
   Attribute: any[] = [ ];
   selectedproject = -1;
-  index = -1;
 
   constructor(private projSvc:ProjectsService) { 
      projSvc.getProjects().subscribe(result=>{
@@ -18,15 +17,14 @@ export class HomeComponent implements OnInit {
      })
   }
 
-  showDetail(id,project){
-    console.log(id);
+  showDetail(index,project){
+    console.log(index);
     console.log(project);
-    this.index = id;
-    if (this.selectedproject === this.index){
+    if (this.selectedproject === index){
       this.selectedproject = -1;
     }
     else {
-      this.selectedproject = this.index;
+      this.selectedproject = index;
     }
   }
 

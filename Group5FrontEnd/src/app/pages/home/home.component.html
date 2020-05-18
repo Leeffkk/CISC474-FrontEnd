@@ -6,20 +6,17 @@
             <thead>
                 <th>Project Name</th>
             </thead>
-        </table>
         <tbody>
             <li colspan=3 *ngFor = 'let item of Projects'>
-                {{item.name}} <button (click)= showDetail(index,item)> click</button>
-                <tr>
-                    <td [hidden]='index!=selectedproject'>
-                        <p>Description: {{item.description}}</p>
-                        <p><a href='{{item.url}}' target='_new'>See Webpage</a> </p>
-                    </td>
-                </tr>
+                {{item.name}}
+                Description: {{item.description}}
+                <a href='{{item.url}}' target='_new'>See Webpage</a>
             </li>
         </tbody>
+    </table>
     </div>
 </div>
+
 <!--
 <div>
     <h2>All Project</h2>

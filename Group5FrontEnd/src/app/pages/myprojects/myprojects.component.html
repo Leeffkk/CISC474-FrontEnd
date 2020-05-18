@@ -1,29 +1,17 @@
-<!---
 <div>
-    <h2>My Project</h2>
+    <h2>All Project</h2>
     <div class="container-fluid">
         <table class="table table-responsive">
             <thead>
                 <th>Project Name</th>
             </thead>
-        </table>
         <tbody>
-            <template ngFor let-track [ngForof]="Projects" let-index="index">
-                <tr (click)='showDetail(index,track)' class="clickable">
-                    <td>{{projects.name}}</td>
-                </tr>
-                <tr>
-                    <td colspan=3 class="detail">
-                        <div class="container-fluid">
-                            <div class="col-md-4">
-                                <h4>Description: {{Projects.description}}</h4>
-                                <h4><a href='{{Projects.url}}' target='_new'>See Webpage</a> </h4>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </template>
+            <li colspan=3 *ngFor = 'let item of Projects'>
+                {{item.name}}
+                Description: {{item.description}}
+                <a href='{{item.url}}' target='_new'>See Webpage</a>
+            </li>
         </tbody>
+    </table>
     </div>
 </div>
--->
