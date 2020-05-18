@@ -6,12 +6,20 @@
                 <th>Project Name</th>
             </thead>
         <tbody>
-            <li colspan=3 *ngFor = 'let item of Projects'>
-                {{item.name}}   Description: {{item.description}}
-                <a href='{{item.url}}' target='_new'>See Webpage</a>
-                <button (click)='update()'>update</button>
-                <button class="btn-danger" (click)='delate(item._id)'>delete</button>
-            </li>
+            <tr>
+                <td>Project name</td>
+                <td>Description</td>
+                <td>url address</td>
+                <td>Update</td>
+                <td>Delate</td>
+            </tr>
+            <tr *ngFor = 'let item of Projects'>
+                <td>{{item.name}}</td>
+                <td>{{item.description}}</td>
+                <td><a href='{{item.url}}' target='_new'>See Webpage</a></td>
+                <td><button (click)='update()'>update</button></td>
+                <td><button class="btn-danger" (click)='delate(item._id)'>delete</button></td>
+            </tr>
         </tbody>
     </table>
     </div>

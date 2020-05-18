@@ -11,15 +11,15 @@ export class MyprojectsComponent implements OnInit {
   Projects: any[] = [ {
     "_id": "5ec20f161c98d15820ef939a",
     "name": "dklajfklae",
-    "description": null,
+    "description": "hello",
     "url": "sdafklajekrja",
     "groupMembers": "{dfaadsf,seraera,e,ra,erae}",
     "posts": null
 }];
   Attribute: any[] = [ ];
   selectedproject = -1;
+  error: string;
 
-  index=-1;
   constructor(private projSvc:ProjectsService) { 
     projSvc.getProject().subscribe(result=>{
       this.Projects=result.data;
@@ -39,7 +39,8 @@ export class MyprojectsComponent implements OnInit {
 
   delate(id){
     //let index = this.Projects.indexOf(item);
-    this.projSvc.deleteProject(id);
+    this.projSvc.deleteProject(id).subscribe(err=>{this.error=err.message||err;}
+      );
   }
   update(){
 

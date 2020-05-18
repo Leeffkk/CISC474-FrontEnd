@@ -7,16 +7,20 @@
                 <th>Project Name</th>
             </thead>
         <tbody>
-            <li colspan=3 *ngFor = 'let item of Projects'>
-                {{item.name}}
-                Description: {{item.description}}
-                <a href='{{item.url}}' target='_new'>See Webpage</a>
-            </li>
+            <tr>
+                <td>Project name</td>
+                <td>Description</td>
+                <td>url address</td>
+            </tr>
+            <tr *ngFor = 'let item of Projects'>
+                <td>{{item.name}}</td>
+                <td>{{item.description}}</td>
+                <td><a href='{{item.url}}' target='_new'>See Webpage</a></td>
+            </tr>
         </tbody>
     </table>
     </div>
 </div>
-
 <!--
 <div>
     <h2>All Project</h2>
