@@ -9,6 +9,7 @@ import { map, catchError } from 'rxjs/operators';
 export class AuthService {
   private path='http://localhost:3000/api/security/'
   private _token:string=null;
+  private isAD: boolean=false;
   CurrentUser: ReplaySubject<string>=new ReplaySubject<string>();
 
   get token():string{
@@ -27,6 +28,9 @@ export class AuthService {
   }
   get loggedIn():boolean{
     return this.token!=null;
+  }
+  get Admin():boolean{
+    return this.isAD;
   }
   constructor(private http:HttpClient) { 
     this.CurrentUser.next(null);
@@ -47,6 +51,19 @@ export class AuthService {
     },err=>{
       this.token=null;
     });
+  }
+  IsAdmin(): void{
+    this.http.get(this.path+'isAdmin').subscribe(result=>{
+      if (result['status']==='success'){
+        this.isAD=true;
+      }
+      else{
+        this.isAD=false;
+      }
+    },err=>{
+      this.isAD=false;
+    }
+    )
   }
 
   login(email: string,password:string): Observable<any>{

@@ -3,24 +3,38 @@
     <div class="container-fluid">
         <table class="table table-responsive">
             <thead>
-                <th>Project Name</th>
+                <th>Not Approved</th>
             </thead>
-        <tbody>
-            <tr>
-                <td>Project name</td>
-                <td>Description</td>
-                <td>url address</td>
-                <td>Update</td>
-                <td>Delate</td>
-            </tr>
-            <tr *ngFor = 'let item of Projects'>
-                <td>{{item.name}}</td>
-                <td>{{item.description}}</td>
-                <td><a href='{{item.url}}' target='_new'>{{item.url}}</a></td>
-                <td><button class="btn-primary" (click)='update(item._id,item.name,item.url,item.groupMembers,item.description)' routerLink="/updateproject">update</button></td>
-                <td><button class="btn-danger" (click)='delate(item._id)'>delete</button></td>
-            </tr>
-        </tbody>
+            <tbody>
+                <tr>
+                    <td>Project name</td>
+                    <td>Description</td>
+                    <td>url address</td>
+                    <td>Update</td>
+                    <td>Delate</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-responsive">
+            <thead>
+                <th>Approved</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Project name</td>
+                    <td>Description</td>
+                    <td>url address</td>
+                    <td>Update</td>
+                    <td>Delate</td>
+                </tr>
+                <tr *ngFor = 'let item of Projects'>
+                    <td>{{item.name}}</td>
+                    <td>{{item.description}}</td>
+                    <td><a href='{{item.url}}' target='_new'>{{item.url}}</a></td>
+                    <td><button class="btn-primary" (click)='update(item._id,item.name,item.url,item.groupMembers,item.description)' routerLink="/updateproject">update</button></td>
+                    <td><button class="btn-danger" (click)='delate(item._id)'>delete</button></td>
+                </tr>
+            </tbody>
     </table>
     </div>
 </div>

@@ -7,7 +7,7 @@
 <nav class="navbar navbar-expand navbar-dark bg-dark">
   <a class="navbar-brand" routerLink='home'>Group5 - Project3</a>
   <!-- Links -->
-  <ul class="navbar-nav">
+  <ul class="navbar-nav" [hidden]='Isadmin'>
     <li class="nav-item">
       <a class="nav-link" routerLink='home' routerLinkActive='active'>Home</a>
     </li>
@@ -15,7 +15,18 @@
       <a class="nav-link" [class.disabled]='!loggedIn' routerLink='addproject' routerLinkActive='active'>Add Project</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" [class.disabled]='!loggedIn' routerLink='myprojects' routerLinkActive='active'>My Project</a>
+      <a class="nav-link" routerLink='myprojects' routerLinkActive='active'>My Project</a>
+    </li>
+  </ul>
+  <ul class="navbar-nav" [hidden]='!Isadmin'>
+    <li class="nav-item">
+      <a class="nav-link" routerLink='home' routerLinkActive='active'>Edit All project</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink='addproject' routerLinkActive='active'>Add Project</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink='myprojects' routerLinkActive='active'>Edit All project</a>
     </li>
   </ul>
   <ul class='navbar-nav navbar-nav-right' [hidden]='loggedIn'>

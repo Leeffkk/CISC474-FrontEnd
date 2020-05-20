@@ -11,6 +11,9 @@ export class AppComponent {
   get loggedIn():boolean{
     return this.authSvc.loggedIn;
   }
+  get Isadmin():boolean{
+    return this.authSvc.Admin;
+  }
   constructor(public authSvc:AuthService) {
     authSvc.authorize();
   }
