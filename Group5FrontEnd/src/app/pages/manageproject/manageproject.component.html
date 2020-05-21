@@ -1,0 +1,47 @@
+<div>
+    <h2>All Project</h2>
+    <div class="container-fluid">
+        <h4>pending</h4>
+        <table class="table table-hover table-sm">
+            <thead>
+                <th>Project name</th>
+                <th>Description</th>
+                <th>Url</th>
+                <th>Group Members</th>
+                <th>applicant</th>
+                <th>Submit date</th>
+                <th>approve</th>
+                <th>reject</th>
+            </thead>
+        <tbody>
+            <tr *ngFor = 'let item of Projects'>
+                <td>{{item.name}}</td>
+                <td>{{item.description}}</td>
+                <td><a href='{{item.url}}' target='_new'>{{item.url}}</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <h4>Approved</h4>
+        <table class="table table-hover table-sm">
+            <thead>
+                <th>Project name</th>
+                <th>Description</th>
+                <th>Url</th>
+                <th>Group Members</th>
+                <th>applicant</th>
+                <th>Submintted date</th>
+                <th>Approved date</th>
+                <th>update</th>
+                <th>delete</th>
+            </thead>
+        <tbody>
+            <tr *ngFor = 'let item of Projects'>
+                <td>{{item.name}}</td>
+                <td>{{item.description}}</td>
+                <td><a href='{{item.url}}' target='_new'>{{item.url}}</a></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+</div>

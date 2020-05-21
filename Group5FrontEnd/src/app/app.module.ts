@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { MyprojectsComponent } from './pages/myprojects/myprojects.component';
 import { UpdateProjectComponent } from './pages/updateproject/updateproject.component';
+import { ManageprojectComponent } from './pages/manageproject/manageproject.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { UpdateProjectComponent } from './pages/updateproject/updateproject.comp
     RegisterComponent,
     AddprojectComponent,
     MyprojectsComponent,
-    UpdateProjectComponent
+    UpdateProjectComponent,
+    ManageprojectComponent
   ],
   imports: [
     BrowserModule,

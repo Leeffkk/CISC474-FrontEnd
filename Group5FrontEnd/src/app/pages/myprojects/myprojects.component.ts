@@ -14,7 +14,7 @@ export class MyprojectsComponent implements OnInit {
   error: string;
 
   constructor(private projSvc:ProjectsService) { 
-    projSvc.getProject().subscribe(result=>{
+    projSvc.getSubmittedProjects().subscribe(result=>{
       this.Projects=result.data;
     })
   }
@@ -33,7 +33,7 @@ export class MyprojectsComponent implements OnInit {
   delate(id){
     //let index = this.Projects.indexOf(item);
     this.projSvc.deleteProject(id).subscribe(err=>{this.error=err.message||err;
-      this.projSvc.getProject().subscribe(result=>{
+      this.projSvc.getSubmittedProjects().subscribe(result=>{
         this.Projects=result.data;
       })}
       );

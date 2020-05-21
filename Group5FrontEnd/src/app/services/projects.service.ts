@@ -15,11 +15,11 @@ export class ProjectsService {
   GroupM: string;
   Descript: string;
 
-  getProjects(): Observable<any>{
-    return this.http.get(this.path+'getProjects');
+  getApprovedProjects(): Observable<any>{
+    return this.http.get(this.path+'getApprovedProjects');
   }
-  getProject(): Observable<any>{
-    return this.http.get(this.path+'getProjectsByCurUser');
+  getSubmittedProjects(): Observable<any>{
+    return this.http.get(this.path+'getSubmittedProjects');
   }
   addProjects(name: string, url: string, groupmember: string, description: string): Observable<any>{
     return this.http.post(this.path,{name: name, url: url, groupMembers: groupmember, description: description});

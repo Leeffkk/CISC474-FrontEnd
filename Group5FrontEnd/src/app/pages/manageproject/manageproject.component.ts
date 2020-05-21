@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ProjectsService } from 'src/app/services/projects.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-manageproject',
+  templateUrl: './manageproject.component.html',
+  styleUrls: ['./manageproject.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class ManageprojectComponent implements OnInit {
   Projects: any[] = [ ];
   Attribute: any[] = [ ];
   selectedproject = -1;
