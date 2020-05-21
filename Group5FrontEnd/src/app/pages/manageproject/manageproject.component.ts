@@ -13,7 +13,7 @@ export class ManageprojectComponent implements OnInit {
 
   constructor(private projSvc:ProjectsService) { 
      projSvc.getApprovedProjects().subscribe(result=>{
-       this.Projects=result.data;
+       this.Projects=result.data.projects;
      })
   }
 

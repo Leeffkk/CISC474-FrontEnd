@@ -54,7 +54,7 @@ export class AuthService {
   }
   IsAdmin(): void{
     this.http.get(this.path+'isAdmin').subscribe(result=>{
-      if (result['status']==='success'){
+      if (result['data']==='success'){
         this.isAD=true;
       }
       else{

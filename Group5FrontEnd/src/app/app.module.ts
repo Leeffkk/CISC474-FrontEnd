@@ -13,6 +13,7 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
 import { MyprojectsComponent } from './pages/myprojects/myprojects.component';
 import { UpdateProjectComponent } from './pages/updateproject/updateproject.component';
 import { ManageprojectComponent } from './pages/manageproject/manageproject.component';
+import { MyrequistsComponent } from './pages/myrequists/myrequists.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ManageprojectComponent } from './pages/manageproject/manageproject.comp
     AddprojectComponent,
     MyprojectsComponent,
     UpdateProjectComponent,
-    ManageprojectComponent
+    ManageprojectComponent,
+    MyrequistsComponent
   ],
   imports: [
     BrowserModule,
