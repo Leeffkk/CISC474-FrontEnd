@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectsService } from 'src/app/services/projects.service';
+import {Popup} from 'ng2-opd-popup';
+//import {MatDialog, MatDialogConfig} from '@angular/material';
+
 
 @Component({
   selector: 'app-myprojects',
@@ -12,8 +15,9 @@ export class MyprojectsComponent implements OnInit {
   Attribute: any[] = [ ];
   selectedproject = -1;
   error: string;
+  //private dialog: MatDialog {};
 
-  constructor(private projSvc:ProjectsService) { 
+  constructor(private projSvc:ProjectsService, private popup:Popup) { 
     projSvc.getProjectsByCurUser().subscribe(result=>{
       this.Projects=result.data;
     })
@@ -41,6 +45,9 @@ export class MyprojectsComponent implements OnInit {
   update(id, name, url, groupmember, description){
     this.projSvc.SetIndex(id);
     this.projSvc.SendInfo(name, url, groupmember, description);
+  }
+  Committed(){
+    this.popup.show();
   }
   ngOnInit(): void {
   }

@@ -14,6 +14,8 @@ import { MyprojectsComponent } from './pages/myprojects/myprojects.component';
 import { UpdateProjectComponent } from './pages/updateproject/updateproject.component';
 import { ManageprojectComponent } from './pages/manageproject/manageproject.component';
 import { MyrequistsComponent } from './pages/myrequists/myrequists.component';
+import {PopupModule} from 'ng2-opd-popup';
+//import {BrowserAnimationsModule} from '@angular/platform browser/animations';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { MyrequistsComponent } from './pages/myrequists/myrequists.component';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PopupModule.forRoot()
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi:true}],
   bootstrap: [AppComponent]

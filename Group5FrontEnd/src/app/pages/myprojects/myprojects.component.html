@@ -1,3 +1,6 @@
+<popup>
+    Add your custom html elements here
+</popup>
 <div>
     <h2>All Project</h2>
     <div class="container-fluid">
@@ -8,6 +11,7 @@
                 <th>Url</th>
                 <th>State</th>
                 <th>Approved/Rejected By</th>
+                <th></th>
                 <!--<th>Update</th>-->
                 <!--<th>Delate</th>-->
             </thead>
@@ -18,6 +22,7 @@
                     <td><a href='{{item.url}}' target='_new'>{{item.url}}</a></td>
                     <td>{{item.state}}</td>
                     <th>{{item.approvedBy}}</th>
+                    <th><button class="btn-danger" (click)='Committed()'>Committed</button></th>
                     <!--<td><button class="btn-primary" (click)='update(item._id,item.name,item.url,item.groupMembers,item.description)' routerLink="/updateproject">update</button></td>
                     <td><button class="btn-danger" (click)='delate(item._id)'>delete</button></td>-->
                 </tr>
