@@ -18,10 +18,11 @@ export class ManageprojectComponent implements OnInit {
 
   constructor(private projSvc:ProjectsService, private route: ActivatedRoute, private router: Router) { 
       projSvc.getAllProjects().subscribe(result=>{
-        this.Projects=result.data.projects;
-        this.Pending = this.Projects.filter(
+        this.Pending=result.data.projects;
+        this.Approved=result.data.projects;
+        this.Pending = this.Pending.filter(
           project=>project.state=='pending');
-        this.Approved = this.Projects.filter(
+        this.Approved = this.Approved.filter(
           project=>project.state=='approved');
       })
   }
