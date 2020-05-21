@@ -14,8 +14,8 @@ import { MyprojectsComponent } from './pages/myprojects/myprojects.component';
 import { UpdateProjectComponent } from './pages/updateproject/updateproject.component';
 import { ManageprojectComponent } from './pages/manageproject/manageproject.component';
 import { MyrequistsComponent } from './pages/myrequists/myrequists.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,18 +23,18 @@ import {MatDialogModule} from '@angular/material/dialog';
     LoginComponent,
     RegisterComponent,
     AddprojectComponent,
-    MyprojectsComponent,
+    MyprojectsComponent, //DialogContentExampleDialog
     UpdateProjectComponent,
     ManageprojectComponent,
     MyrequistsComponent
-    //ExampleDialogComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    ReactiveFormsModule
-    //MatDialogModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
   entryComponents: [
     //ExampleDialogComponent

@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject, Inject } from '@angular/core';
 import { ProjectsService } from 'src/app/services/projects.service';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-myprojects',
@@ -12,9 +14,8 @@ export class MyprojectsComponent implements OnInit {
   Attribute: any[] = [ ];
   selectedproject = -1;
   error: string;
-  //private dialog: MatDialog {};
 
-  constructor(private projSvc:ProjectsService) { 
+  constructor(private projSvc:ProjectsService, public dialog: MatDialog) { 
     projSvc.getProjectsByCurUser().subscribe(result=>{
       this.Projects=result.data;
     })
@@ -44,9 +45,26 @@ export class MyprojectsComponent implements OnInit {
     this.projSvc.SendInfo(name, url, groupmember, description);
   }
   Committed(){
+    const dialogRef = this.dialog.open(DialogContentExampleDialog, {
+      width: '250px',
+      data: this.Projects
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
   
   ngOnInit(): void {
   }
 
+}
+@Component({
+  selector: 'dialog-data-example-dialog',
+  templateUrl: 'dialog-data-example-dialog.html',
+})
+export class DialogContentExampleDialog {
+  constructor(
+    public dialogRef: MatDialogRef<MyprojectsComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any) {}
 }
