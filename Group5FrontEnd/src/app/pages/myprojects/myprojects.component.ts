@@ -14,7 +14,7 @@ export class MyprojectsComponent implements OnInit {
   error: string;
 
   constructor(private projSvc:ProjectsService) { 
-    projSvc.getSubmittedProjects().subscribe(result=>{
+    projSvc.getProjectsByCurUser().subscribe(result=>{
       this.Projects=result.data;
     })
   }
