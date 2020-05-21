@@ -21,6 +21,9 @@ export class ProjectsService {
   getSubmittedProjects(): Observable<any>{
     return this.http.get(this.path+'getSubmittedProjects');
   }
+  getProjectsByCurUser(): Observable<any>{
+    return this.http.get(this.path+'getProjectsByCurUser');
+  }
   addProjects(name: string, url: string, groupmember: string, description: string): Observable<any>{
     return this.http.post(this.path,{name: name, url: url, groupMembers: groupmember, description: description});
   }
