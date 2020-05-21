@@ -34,6 +34,7 @@ export class LoginComponent implements OnInit {
     }
     this.loading=true;
     this.authSvc.login(this.loginForm.controls.username.value,this.loginForm.controls.password.value).subscribe(response=>{
+      this.authSvc.IsAdmin();
       this.router.navigate([this.returnUrl]);
     },err=>{this.submitted=false;this.loading=false;this.error=err.message||err;});
   }
