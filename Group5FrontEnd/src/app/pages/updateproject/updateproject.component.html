@@ -12,24 +12,24 @@
     </div>
     <div class="form-group">
         <label for="projecturl">Project's Url</label>
-        <input type="url" formControlName="projecturl" class="form-control" placeholder={{url}}
-        [ngClass]="{ 'is-invalid': submitted && updateForm.controls.projecturl.errors }" />
+        <input formControlName="projecturl" class="form-control" [ngClass]="{ 'is-invalid': submitted && updateForm.controls.projecturl.errors }" 
+        #textbox type="url" [(ngModel)]="url"/>
         <div *ngIf="submitted && updateForm.controls.projecturl.errors" class="invalid-feedback">
             <div *ngIf="updateForm.controls.projecturl.errors.required">Project's Url is required</div>
         </div>
     </div>
     <div class="form-group">
         <label for="groupmember">Group Member</label>
-        <input type="text" formControlName="groupmember" class="form-control" placeholder={{groupMember}}
-        [ngClass]="{ 'is-invalid': submitted && updateForm.controls.groupmember.errors }" />
+        <input formControlName="groupmember" class="form-control" [ngClass]="{ 'is-invalid': submitted && updateForm.controls.groupmember.errors }" 
+        #textbox type="text" [(ngModel)]="groupMember"/>
         <div *ngIf="submitted && updateForm.controls.groupmember.errors" class="invalid-feedback">
             <div *ngIf="updateForm.controls.groupmember.errors.required">Group member is required</div>
         </div>
     </div>
     <div class="form-group">
         <label for="description">Description</label>
-        <input type="text" formControlName="description" class="form-control" placeholder={{descript}} 
-        [ngClass]="{ 'is-invalid': submitted && updateForm.controls.description.errors }" />
+        <input formControlName="description" class="form-control" [ngClass]="{ 'is-invalid': submitted && updateForm.controls.description.errors }" 
+        #textbox type="text" [(ngModel)]="descript"/>
         <div *ngIf="submitted && updateForm.controls.description.errors" class="invalid-feedback">
             <div *ngIf="updateForm.controls.description.errors.required">description is required</div>
         </div>
