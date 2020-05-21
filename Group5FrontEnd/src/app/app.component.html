@@ -34,6 +34,9 @@
     <li class="nav-item">
       <a class="nav-link" routerLink='myprojects' routerLinkActive='active'>My Projects</a>
     </li>
+    <li class="nav-item">
+      <a class="nav-link" [class.disabled]='!loggedIn' routerLink='myrequists' routerLinkActive='active'>My Requists</a>
+    </li>
   </ul>
   <ul class='navbar-nav navbar-nav-right' [hidden]='loggedIn'>
     <li class='nav-item'>
