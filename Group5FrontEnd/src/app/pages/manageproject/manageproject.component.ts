@@ -8,37 +8,18 @@ import { windowWhen } from 'rxjs/operators';
   styleUrls: ['./manageproject.component.scss']
 })
 export class ManageprojectComponent implements OnInit {
-  Projects: any[] = [ {
-    "_id": "5ec1ef400f64c03cf47c7f77",
-    "name": "CISC4747",
-    "description": "a lot ...",
-    "url": "www.google.com",
-    "groupMembers": "{test333@gmail.com, test3433. test1230}",
-    "state": "Pending",
-    "semester": null,
-    "projectNumber": null
-},
-{
-    "_id": "5ec1ef76bc74ac4c2c0419f9",
-    "name": "CISC4747",
-    "description": "a lot ...",
-    "url": "www.google.com",
-    "groupMembers": "{test333@gmail.com, test3433}",
-    "state": "Approved",
-    "semester": null,
-    "projectNumber": null
-}];
+  Projects: any[] = [ ];
   Pending: any[] = [ ];
   Approved: any[] = [ ];
   selectedproject = -1;
   error: string;
 
   constructor(private projSvc:ProjectsService) { 
-    //  projSvc.getAllProjects().subscribe(result=>{
-    //    this.Projects=result.data.projects;
-    //    this.Pending=result.data.projects;
-    //    this.Approved=result.data.projects;
-    //  })
+      projSvc.getAllProjects().subscribe(result=>{
+        this.Projects=result.data.projects;
+        this.Pending=result.data.projects;
+        this.Approved=result.data.projects;
+      })
     this.Pending = this.Projects.filter(
       project=>project.state=='Pending');
     this.Approved = this.Projects.filter(
