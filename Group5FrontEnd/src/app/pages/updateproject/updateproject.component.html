@@ -4,8 +4,8 @@
 <form [formGroup]="updateForm" (ngSubmit)="submit()">
     <div class="form-group">
         <label for="projectname">Project's Name</label>
-        <input type="text" formControlName="projectname" class="form-control" placeholder={{name}}
-        [ngClass]="{ 'is-invalid': submitted && updateForm.controls.projectname.errors }" />
+        <input formControlName="projectname" class="form-control" [ngClass]="{ 'is-invalid': submitted && updateForm.controls.projectname.errors }" 
+        #textbox type="text" [(ngModel)]="name"/>
         <div *ngIf="submitted && updateForm.controls.projectname.errors" class="invalid-feedback">
             <div *ngIf="updateForm.controls.projectname.errors.required">Project's name is required</div>
         </div>

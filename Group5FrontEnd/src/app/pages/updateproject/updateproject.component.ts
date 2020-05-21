@@ -21,6 +21,7 @@ export class UpdateProjectComponent implements OnInit {
   groupMember: string;
   descript: string;
 
+
   constructor(private formBuilder: FormBuilder,private route: ActivatedRoute,private router: Router,private projSev: ProjectsService) {
    }
 
