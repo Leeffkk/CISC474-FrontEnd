@@ -17,24 +17,16 @@ export class ManageprojectComponent implements OnInit {
   returnUrl: string;
 
   constructor(private projSvc:ProjectsService, private route: ActivatedRoute, private router: Router) { 
-      projSvc.getAllProjects().subscribe(result=>{
-        this.Pending=result.data.projects;
-        this.Approved=result.data.projects;
-        this.Pending = this.Pending.filter(
-          project=>project.state=='pending');
-        this.Approved = this.Approved.filter(
-          project=>project.state=='approved');
-      })
+    this.reloadPage();
   }
 
   delete(id){
     this.projSvc.deleteProject(id).subscribe(response=>{
-      this.router.navigate([this.returnUrl]);},
-      err=>{this.error=err.message||err;
-      this.projSvc.getSubmittedProjects().subscribe(result=>{
-        this.Projects=result.data;
-      })}
-      );
+      this.reloadPage();
+      // TODO:: show response
+    },
+      err=>{this.error=err.message||err;});
+      this.reloadPage();
   }
 
   update(id, name, url, groupmember, description){
@@ -43,22 +35,32 @@ export class ManageprojectComponent implements OnInit {
   }
   approve(id){
     this.projSvc.approveProject(id).subscribe(response=>{
-      this.router.navigate([this.returnUrl]);},
-      err=>{this.error=err.message||err;
-      this.projSvc.getSubmittedProjects().subscribe(result=>{
-        this.Projects=result.data;
-      })}
-      );
+      // TODO:: show response  
+      this.reloadPage();
+      },
+      err=>{this.error=err.message||err;});
+      this.reloadPage();
   }
   reject(id){
     this.projSvc.rejectProject(id).subscribe(response=>{
-      this.router.navigate([this.returnUrl]);},
-      err=>{this.error=err.message||err;
-      this.projSvc.getSubmittedProjects().subscribe(result=>{
-        this.Projects=result.data;
-      })}
-      );
+      // TODO:: show response
+      this.reloadPage();
+      },
+      err=>{this.error=err.message||err;});
+      this.reloadPage();
   }
+
+  reloadPage(){
+    this.projSvc.getAllProjects().subscribe(result=>{
+      this.Pending=result.data.projects;
+      this.Approved=result.data.projects;
+      this.Pending = this.Pending.filter(
+        project=>project.state=='pending');
+      this.Approved = this.Approved.filter(
+        project=>project.state=='approved');
+    })
+  }
+
   ngOnInit(): void {
     this.returnUrl=this.route.snapshot.queryParams['returnUrl'] || '/';
   }
