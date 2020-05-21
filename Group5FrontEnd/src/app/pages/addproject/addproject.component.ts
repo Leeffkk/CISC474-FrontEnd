@@ -41,7 +41,7 @@ export class AddprojectComponent implements OnInit {
       "{"+this.projectForm.controls.groupmember.value+"}",
       this.projectForm.controls.description.value).subscribe(response=>{
         this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-          this.router.navigate(['myprojects']);
+          this.router.navigate(['home']);
       }); 
     },err=>{this.submitted=false;this.loading=false;this.error=err.message||err;});
   }
