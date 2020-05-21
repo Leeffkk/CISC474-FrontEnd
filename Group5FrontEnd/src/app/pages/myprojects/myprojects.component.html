@@ -1,11 +1,23 @@
 <div>
     <h2>All Project</h2>
     <div class="container-fluid">
-        <table class="table table-responsive">
+        <h4>Not Approved</h4>
+        <table class="table table-hover table-sm">
             <thead>
-                <th>Not Approved</th>
+                <th>Project name</th>
+                <th>Description</th>
+                <th>url address</th>
+                <th>Update</th>
+                <th>Delate</th>
             </thead>
             <tbody>
+                <tr>
+                    <td>Project name</td>
+                    <td>Description</td>
+                    <td>url address</td>
+                    <td>Update</td>
+                    <td>Delate</td>
+                </tr>
                 <tr>
                     <td>Project name</td>
                     <td>Description</td>
@@ -15,18 +27,16 @@
                 </tr>
             </tbody>
         </table>
-        <table class="table table-responsive">
+        <h4>Approved</h4>
+        <table class="table table-hover table-sm">
             <thead>
-                <th>Approved</th>
+                <th>Project name</th>
+                <th>Description</th>
+                <th>url address</th>
+                <th>Update</th>
+                <th>Delate</th>
             </thead>
             <tbody>
-                <tr>
-                    <td>Project name</td>
-                    <td>Description</td>
-                    <td>url address</td>
-                    <td>Update</td>
-                    <td>Delate</td>
-                </tr>
                 <tr *ngFor = 'let item of Projects'>
                     <td>{{item.name}}</td>
                     <td>{{item.description}}</td>
