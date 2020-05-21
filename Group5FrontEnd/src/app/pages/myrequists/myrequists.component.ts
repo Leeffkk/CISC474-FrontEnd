@@ -14,7 +14,7 @@ export class MyrequistsComponent implements OnInit {
 
   constructor(private projSvc:ProjectsService) { 
     projSvc.getSubmittedProjects().subscribe(result=>{
-      this.Projects=result.data;
+      this.Projects=result.data.projects;
     })
   }
 
