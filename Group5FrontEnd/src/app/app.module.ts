@@ -14,7 +14,7 @@ import { MyprojectsComponent } from './pages/myprojects/myprojects.component';
 import { UpdateProjectComponent } from './pages/updateproject/updateproject.component';
 import { ManageprojectComponent } from './pages/manageproject/manageproject.component';
 import { MyrequistsComponent } from './pages/myrequists/myrequists.component';
-//import {MatDialogModule} from '@angular/material/dialog';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
