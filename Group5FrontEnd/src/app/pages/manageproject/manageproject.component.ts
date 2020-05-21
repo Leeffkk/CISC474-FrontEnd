@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectsService } from 'src/app/services/projects.service';
+import { ActivatedRoute, Router } from '@angular/router';
 import { windowWhen } from 'rxjs/operators';
 
 @Component({
@@ -13,21 +14,22 @@ export class ManageprojectComponent implements OnInit {
   Approved: any[] = [ ];
   selectedproject = -1;
   error: string;
+  returnUrl: string;
 
-  constructor(private projSvc:ProjectsService) { 
+  constructor(private projSvc:ProjectsService, private route: ActivatedRoute, private router: Router) { 
       projSvc.getAllProjects().subscribe(result=>{
         this.Projects=result.data.projects;
-        this.Pending=result.data.projects;
-        this.Approved=result.data.projects;
+        this.Pending = this.Projects.filter(
+          project=>project.state=='pending');
+        this.Approved = this.Projects.filter(
+          project=>project.state=='approved');
       })
-    this.Pending = this.Projects.filter(
-      project=>project.state=='Pending');
-    this.Approved = this.Projects.filter(
-      project=>project.state=='Approved');
   }
 
   delete(id){
-    this.projSvc.deleteProject(id).subscribe(err=>{this.error=err.message||err;
+    this.projSvc.deleteProject(id).subscribe(response=>{
+      this.router.navigate([this.returnUrl]);},
+      err=>{this.error=err.message||err;
       this.projSvc.getSubmittedProjects().subscribe(result=>{
         this.Projects=result.data;
       })}
@@ -39,20 +41,25 @@ export class ManageprojectComponent implements OnInit {
     this.projSvc.SendInfo(name, url, groupmember, description);
   }
   approve(id){
-    this.projSvc.approveProject(id).subscribe(err=>{this.error=err.message||err;
+    this.projSvc.approveProject(id).subscribe(response=>{
+      this.router.navigate([this.returnUrl]);},
+      err=>{this.error=err.message||err;
       this.projSvc.getSubmittedProjects().subscribe(result=>{
         this.Projects=result.data;
       })}
       );
   }
   reject(id){
-    this.projSvc.rejectProject(id).subscribe(err=>{this.error=err.message||err;
+    this.projSvc.rejectProject(id).subscribe(response=>{
+      this.router.navigate([this.returnUrl]);},
+      err=>{this.error=err.message||err;
       this.projSvc.getSubmittedProjects().subscribe(result=>{
         this.Projects=result.data;
       })}
       );
   }
   ngOnInit(): void {
+    this.returnUrl=this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
 }
