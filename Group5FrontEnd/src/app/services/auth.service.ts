@@ -47,7 +47,6 @@ export class AuthService {
       else{
         this.CurrentUser.next(result['data'].email)
       }
-
     },err=>{
       this.token=null;
     });
@@ -84,5 +83,6 @@ export class AuthService {
     this.token=null;
     this.isAD=false;
     this.CurrentUser.next(null);
+    location.reload();
   }
 }
