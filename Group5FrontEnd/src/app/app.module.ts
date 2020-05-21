@@ -14,8 +14,7 @@ import { MyprojectsComponent } from './pages/myprojects/myprojects.component';
 import { UpdateProjectComponent } from './pages/updateproject/updateproject.component';
 import { ManageprojectComponent } from './pages/manageproject/manageproject.component';
 import { MyrequistsComponent } from './pages/myrequists/myrequists.component';
-import {PopupModule} from 'ng2-opd-popup';
-//import {BrowserAnimationsModule} from '@angular/platform browser/animations';
+//import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -28,13 +27,17 @@ import {PopupModule} from 'ng2-opd-popup';
     UpdateProjectComponent,
     ManageprojectComponent,
     MyrequistsComponent
+    //ExampleDialogComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    ReactiveFormsModule,
-    PopupModule.forRoot()
+    ReactiveFormsModule
+    //MatDialogModule
+  ],
+  entryComponents: [
+    //ExampleDialogComponent
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi:true}],
   bootstrap: [AppComponent]
