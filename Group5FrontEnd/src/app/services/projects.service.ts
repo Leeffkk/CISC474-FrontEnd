@@ -24,8 +24,17 @@ export class ProjectsService {
   getProjectsByCurUser(): Observable<any>{
     return this.http.get(this.path+'getProjectsByCurUser');
   }
+  getAllProjects(): Observable<any>{
+    return this.http.get(this.path+'getAllProjects');
+  }
   addProjects(name: string, url: string, groupmember: string, description: string): Observable<any>{
     return this.http.post(this.path,{name: name, url: url, groupMembers: groupmember, description: description});
+  }
+  approveProject(id): Observable<any>{
+    return this.http.post(this.path+"approveProject",{id: id});
+  }
+  rejectProject(id): Observable<any>{
+    return this.http.post(this.path+"rejectProject",{id: id});
   }
   UpdateProject(id, name: string, url: string, groupmember: string, description: string): Observable<any>{
     return this.http.put(this.path+'',{id: id, name: name, url: url, groupMembers: groupmember, description: description});

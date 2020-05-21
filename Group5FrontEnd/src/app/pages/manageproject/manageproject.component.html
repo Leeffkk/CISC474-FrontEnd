@@ -14,10 +14,15 @@
                 <th>reject</th>
             </thead>
         <tbody>
-            <tr *ngFor = 'let item of Projects'>
+            <tr *ngFor = 'let item of Pending'>
                 <td>{{item.name}}</td>
                 <td>{{item.description}}</td>
                 <td><a href='{{item.url}}' target='_new'>{{item.url}}</a></td>
+                <td>{{item.groupMembers}}</td>
+                <td>{{item.applicant}}</td>
+                <td>{{item.dateSubmitted}}</td>
+                <td><button class="btn-primary" (click)='approve(item._id)'>approve</button></td>
+                <td><button class="btn-danger" (click)='reject(item._id)'>reject</button></td>
             </tr>
         </tbody>
     </table>
@@ -35,11 +40,16 @@
                 <th>delete</th>
             </thead>
         <tbody>
-            <tr *ngFor = 'let item of Projects'>
+            <tr *ngFor = 'let item of Approved'>
                 <td>{{item.name}}</td>
                 <td>{{item.description}}</td>
                 <td><a href='{{item.url}}' target='_new'>{{item.url}}</a></td>
-                <td></td>
+                <td>{{item.groupMembers}}</td>
+                <td>{{item.applicant}}</td>
+                <td>{{item.dateSubmitted}}</td>
+                <td>{{item.approvedBy}}</td>
+                <td><button class="btn-primary" (click)='update(item._id,item.name,item.url,item.groupMembers,item.description)' routerLink="/updateproject">update</button></td>
+                <td><button class="btn-danger" (click)='delete(item._id)'>delete</button></td>
             </tr>
         </tbody>
     </table>
