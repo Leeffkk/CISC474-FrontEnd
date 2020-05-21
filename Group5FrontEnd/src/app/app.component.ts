@@ -16,6 +16,7 @@ export class AppComponent {
   }
   constructor(public authSvc:AuthService) {
     authSvc.authorize();
+    authSvc.IsAdmin();
   }
 
   signout(){
