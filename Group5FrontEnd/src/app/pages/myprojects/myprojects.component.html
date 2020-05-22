@@ -7,8 +7,7 @@
                 <th>Project name</th>
                 <th>Description</th>
                 <th>Url</th>
-                <th>State</th>
-                <th>Approved/Rejected By</th>
+                <th>Group Members</th>
                 <th></th>
                 <!--<th>Update</th>-->
                 <!--<th>Delate</th>-->
@@ -18,8 +17,7 @@
                     <td>{{item.name}}</td>
                     <td>{{item.description}}</td>
                     <td><a href='{{item.url}}' target='_new'>{{item.url}}</a></td>
-                    <td>{{item.state}}</td>
-                    <th>{{item.approvedBy}}</th>
+                    <td>{{item.groupMembers}}</td>
                     <th><button mat-button class="btn-danger" (click)='Committed(item)'>Commit</button></th>
                     <!--<td><button class="btn-primary" (click)='update(item._id,item.name,item.url,item.groupMembers,item.description)' routerLink="/updateproject">update</button></td>
                     <td><button class="btn-danger" (click)='delate(item._id)'>delete</button></td>-->
