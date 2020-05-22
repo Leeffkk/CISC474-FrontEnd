@@ -1,6 +1,7 @@
 import { Component, OnInit, inject, Inject } from '@angular/core';
 import { ProjectsService } from 'src/app/services/projects.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {MydialogComponent} from '../../mydialog/mydialog.component'
 
 
 @Component({
@@ -10,15 +11,32 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 })
 export class MyprojectsComponent implements OnInit {
 
-  Projects: any[] = [ ];
+  Projects: any[] = [ {
+    "_id": "5ec1ef400f64c03cf47c7f77",
+    "name": "CISC4747",
+    "description": "a lot ...",
+    "groupid": null,
+    "groupMembers": "{test333@gmail.com, test3433. test1230}",
+    "semester": null,
+    "projectNumber": null
+},
+{
+    "_id": "5ec1ef76bc74ac4c2c0419f9",
+    "name": "CISC4747",
+    "description": "a lot ...",
+    "groupid": null,
+    "groupMembers": "{test333@gmail.com, test3433. test1230}",
+    "semester": null,
+    "projectNumber": null
+}];
   Attribute: any[] = [ ];
   selectedproject = -1;
   error: string;
 
   constructor(private projSvc:ProjectsService, public dialog: MatDialog) { 
-    projSvc.getProjectsByCurUser().subscribe(result=>{
-      this.Projects=result.data;
-    })
+    // projSvc.getProjectsByCurUser().subscribe(result=>{
+    //   this.Projects=result.data;
+    // })
   }
 
   showDetail(index, project){
@@ -45,9 +63,9 @@ export class MyprojectsComponent implements OnInit {
     this.projSvc.SendInfo(name, url, groupmember, description);
   }
   Committed(){
-    const dialogRef = this.dialog.open(DialogContentExampleDialog, {
+    const dialogRef = this.dialog.open(MydialogComponent, {
       width: '250px',
-      data: this.Projects
+      data: {data : this.Projects},
     });
 
     dialogRef.afterClosed().subscribe(result => {

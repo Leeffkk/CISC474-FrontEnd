@@ -15,7 +15,9 @@ import { UpdateProjectComponent } from './pages/updateproject/updateproject.comp
 import { ManageprojectComponent } from './pages/manageproject/manageproject.component';
 import { MyrequistsComponent } from './pages/myrequists/myrequists.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MydialogComponent } from './mydialog/mydialog.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +28,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     MyprojectsComponent, //DialogContentExampleDialog
     UpdateProjectComponent,
     ManageprojectComponent,
-    MyrequistsComponent
+    MyrequistsComponent,
+    MydialogComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatDialogModule
   ],
   entryComponents: [
-    //ExampleDialogComponent
+    MydialogComponent
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi:true}],
   bootstrap: [AppComponent]
