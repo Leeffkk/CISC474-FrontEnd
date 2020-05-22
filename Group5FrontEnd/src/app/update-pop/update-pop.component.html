@@ -3,7 +3,7 @@
 <div class="center">
 <form id="form1" [formGroup]="updateForm" (ngSubmit)="submit()">
     <div class="form-group">
-        <label for="projectname">Project's Name</label>
+        <label for="projectname"><strong>Project Name</strong></label>
         <input formControlName="projectname" class="form-control" [ngClass]="{ 'is-invalid': submitted && updateForm.controls.projectname.errors }" 
         #textbox type="text" [(ngModel)]="item.name"/>
         <div *ngIf="submitted && updateForm.controls.projectname.errors" class="invalid-feedback">
@@ -11,7 +11,7 @@
         </div>
     </div>
     <div class="form-group">
-        <label for="projecturl">Project's Url</label>
+        <label for="projecturl"><strong></strong>Project Url</strong></label>
         <input formControlName="projecturl" class="form-control" [ngClass]="{ 'is-invalid': submitted && updateForm.controls.projecturl.errors }" 
         #textbox type="url" [(ngModel)]="item.url"/>
         <div *ngIf="submitted && updateForm.controls.projecturl.errors" class="invalid-feedback">
@@ -19,17 +19,17 @@
         </div>
     </div>
     <div class="form-group">
-        <label for="groupmember">Group Member</label>
+        <label for="groupmember"><strong>Group Members</strong></label>
         <input formControlName="groupmember" class="form-control" [ngClass]="{ 'is-invalid': submitted && updateForm.controls.groupmember.errors }" 
-        #textbox type="text" [(ngModel)]="item.groupMember"/>
+        #textbox type="text" [(ngModel)]="item.groupMembers"/>
         <div *ngIf="submitted && updateForm.controls.groupmember.errors" class="invalid-feedback">
             <div *ngIf="updateForm.controls.groupmember.errors.required">Group member is required</div>
         </div>
     </div>
     <div class="form-group">
-        <label for="description">Description</label>
+        <label for="description"><strong>Project Description</strong></label>
         <input formControlName="description" class="form-control" [ngClass]="{ 'is-invalid': submitted && updateForm.controls.description.errors }" 
-        #textbox type="text" [(ngModel)]="item.descript"/>
+        #textbox type="text" [(ngModel)]="item.description"/>
         <div *ngIf="submitted && updateForm.controls.description.errors" class="invalid-feedback">
             <div *ngIf="updateForm.controls.description.errors.required">description is required</div>
         </div>
@@ -39,6 +39,7 @@
             <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
             Submit
         </button>
+        <a routerLink="/home" class="btn btn-link">Cancel</a>
     </div>
 </form>
 </div>
