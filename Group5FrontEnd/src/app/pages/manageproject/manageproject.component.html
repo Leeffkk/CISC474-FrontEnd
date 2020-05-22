@@ -11,6 +11,7 @@
                 <th>Date Submitted</th>
                 <th></th>
                 <th></th>
+                <th></th>
             </thead>
         <tbody>
             <tr *ngFor = 'let item of Pending'>
@@ -20,6 +21,7 @@
                 <td>{{item.groupMembers}}</td>
                 <td>{{item.applicant}}</td>
                 <td>{{item.dateSubmitted}}</td>
+                <td></td>
                 <td><button class="btn-primary" (click)='approve(item._id)'>approve</button></td>
                 <td><button class="btn-danger" (click)='reject(item._id)'>reject</button></td>
             </tr>
