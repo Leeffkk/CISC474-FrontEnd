@@ -1,7 +1,7 @@
 <!--<div *ngIf="error" class="alert alert-danger">{{error}}</div>-->
 <div *ngIf="error" class="alert alert-danger">{{error}}</div>
-<h2>Add Project</h2>
-<form [formGroup]="projectForm" (ngSubmit)="submit()">
+<div class="center">
+<form id="form1" [formGroup]="projectForm" (ngSubmit)="submit()">
     <div class="form-group">
         <label for="projectname">Project's Name</label>
         <input type="text" formControlName="projectname" class="form-control" [ngClass]="{ 'is-invalid': submitted && projectForm.controls.projectname.errors }" />
@@ -38,3 +38,4 @@
         <a routerLink="/home" class="btn btn-link">Cancel</a>
     </div>
 </form>
+</div>
