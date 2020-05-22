@@ -31,11 +31,14 @@ export class ManageprojectComponent implements OnInit {
   }
 
   update(item){
-    const dialogRef = this.dialog.open(UpdatePOPComponent, {
-      width: '800px',
-      height: '700px',
-      data: {data : item},
-    });
+    this.projSvc.UpdateProject(item._id, item.name, item.url, item.groupmember, item.description).subscribe(a=>{
+      const dialogRef = this.dialog.open(UpdatePOPComponent, {
+        width: '800px',
+        height: '700px',
+        data: {data : item},
+      });
+    })
+    
   }
   approve(id){
     this.projSvc.approveProject(id).subscribe(response=>{

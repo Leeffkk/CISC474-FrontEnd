@@ -49,7 +49,7 @@
                 <td>{{item.applicant}}</td>
                 <td>{{item.dateSubmitted}}</td>
                 <td>{{item.dateUpdated}}</td>
-                <td><button mat-button style="border-radius: 12px; text-align: center; background-color: #4CAF50; color: white;" (click)='Committed(item)'>update</button></td>
+                <td><button mat-button class="btn-primary" (click)='Committed(item)'>update</button></td>
                 <td><button class="btn-danger" (click)='delete(item._id)'>delete</button></td>
             </tr>
         </tbody>
