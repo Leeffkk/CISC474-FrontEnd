@@ -1,6 +1,6 @@
 <div *ngIf="error" class="alert alert-danger">{{error}}</div>
 <div class="center">
-    <form [formGroup]="registerForm" (ngSubmit)="regist()" class="text-center border border-light p-5">
+    <form id="form1" [formGroup]="registerForm" (ngSubmit)="regist()" class="text-center border border-light p-5">
         <p class="h4 mb-4">Sign Up</p>
         <div class="form-group">
             <label for="username">Username</label>

@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 export interface data {
     data : any
@@ -10,11 +10,13 @@ export interface data {
 })
 export class MydialogComponent implements OnInit {
 
-  constructor(@inject(MAT_DIALOG_DATA) public course : data, ) {
-    console.log(course);
+  item: any[] = [ ];
+  constructor(@Inject(MAT_DIALOG_DATA) public course : data ) {
+    //console.log(course.data[0]._id);
+    this.item = course.data;
    }
 
   ngOnInit(): void {
-  }
+  }œ
 
 }

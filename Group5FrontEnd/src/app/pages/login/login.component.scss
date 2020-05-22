@@ -1,5 +1,11 @@
 .center {
     display: flex;
+    position: relative;
     height: 300px;
     justify-content: center;
+  }
+
+  #form1{
+    width:400px;
+    height: 300px;
   }

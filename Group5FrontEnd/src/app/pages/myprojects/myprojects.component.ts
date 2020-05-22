@@ -62,10 +62,11 @@ export class MyprojectsComponent implements OnInit {
     this.projSvc.SetIndex(id);
     this.projSvc.SendInfo(name, url, groupmember, description);
   }
-  Committed(){
+  Committed(item){
     const dialogRef = this.dialog.open(MydialogComponent, {
-      width: '250px',
-      data: {data : this.Projects},
+      width: '500px',
+      height: '500px',
+      data: {data : item},
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -76,13 +77,4 @@ export class MyprojectsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-}
-@Component({
-  selector: 'dialog-data-example-dialog',
-  templateUrl: 'dialog-data-example-dialog.html',
-})
-export class DialogContentExampleDialog {
-  constructor(
-    public dialogRef: MatDialogRef<MyprojectsComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any) {}
 }
