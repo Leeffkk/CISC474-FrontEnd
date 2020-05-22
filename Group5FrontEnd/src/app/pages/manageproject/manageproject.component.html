@@ -7,8 +7,8 @@
                 <th>Description</th>
                 <th>Url</th>
                 <th>Group Members</th>
-                <th>applicant</th>
-                <th>Submit date</th>
+                <th>Applicant</th>
+                <th>Date Submitted</th>
                 <th></th>
                 <th></th>
             </thead>
@@ -32,11 +32,11 @@
                 <th>Description</th>
                 <th>Url</th>
                 <th>Group Members</th>
-                <th>applicant</th>
-                <th>Submintted date</th>
-                <th>Approved date</th>
-                <th>update</th>
-                <th>delete</th>
+                <th>Applicant</th>
+                <th>Date Submitted</th>
+                <th>Date Updated</th>
+                <th></th>
+                <th></th>
             </thead>
         <tbody>
             <tr *ngFor = 'let item of Approved'>
@@ -46,7 +46,7 @@
                 <td>{{item.groupMembers}}</td>
                 <td>{{item.applicant}}</td>
                 <td>{{item.dateSubmitted}}</td>
-                <td>{{item.approvedBy}}</td>
+                <td>{{item.dateUpdated}}</td>
                 <td><button class="btn-primary" (click)='update(item._id,item.name,item.url,item.groupMembers,item.description)' routerLink="/updateproject">update</button></td>
                 <td><button class="btn-danger" (click)='delete(item._id)'>delete</button></td>
             </tr>

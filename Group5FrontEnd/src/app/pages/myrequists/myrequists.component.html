@@ -4,6 +4,7 @@
             <thead>
                 <th>Project Name</th>
                 <th>Description</th>
+                <th>Group Members</th>
                 <th>Url</th>
                 <th>State</th>
                 <th>Approved/Rejected By</th>
@@ -14,6 +15,7 @@
                 <tr *ngFor = 'let item of Projects'>
                     <td>{{item.name}}</td>
                     <td>{{item.description}}</td>
+                    <td>{{item.groupMembers}}</td>
                     <td><a href='{{item.url}}' target='_new'>{{item.url}}</a></td>
                     <td>{{item.state}}</td>
                     <td>{{item.approvedBy}}</td>
