@@ -33,19 +33,6 @@ export class MyprojectsComponent implements OnInit {
       this.selectedproject = index;
     }
   }
-
-  delate(id){
-    //let index = this.Projects.indexOf(item);
-    this.projSvc.deleteProject(id).subscribe(err=>{this.error=err.message||err;
-      this.projSvc.getSubmittedProjects().subscribe(result=>{
-        this.Projects=result.data;
-      })}
-      );
-  }
-  update(id, name, url, groupmember, description){
-    this.projSvc.SetIndex(id);
-    this.projSvc.SendInfo(name, url, groupmember, description);
-  }
   Committed(item){
     this.projSvc.checkProjectCommits(item.url).subscribe(a=>{
       this.github = a.data;
