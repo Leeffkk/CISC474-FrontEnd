@@ -20,6 +20,11 @@ export class UpdatePOPComponent implements OnInit {
   index: string;
   updateForm: FormGroup;
   item: any[] = [ ];
+  url: string;
+  name: string;
+  groupMembers: string;
+  description: string;
+
   constructor(private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<UpdatePOPComponent>,
     private route: ActivatedRoute,
@@ -28,6 +33,10 @@ export class UpdatePOPComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public course : data ) {
     //console.log(course.data[0]._id);
     this.item = course.data;
+    this.name = course.data.name;
+    this.url = course.data.url;
+    this.groupMembers = course.data.groupMembers;
+    this.description = course.data.description;
     //this.item = []
    }
 

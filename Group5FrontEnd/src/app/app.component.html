@@ -7,7 +7,7 @@
 <nav class="navbar navbar-expand navbar-dark bg-dark">
   <a class="navbar-brand">Group5 - Project3</a>
   <!-- Links -->
-  <ul class="navbar-nav" [hidden]='Isadmin'>
+  <ul class="navbar-nav" [hidden]='!Isadmin'>
     <li class="nav-item">
       <a class="nav-link" routerLink='home' routerLinkActive='active'>Home</a>
     </li>
@@ -21,7 +21,7 @@
       <a class="nav-link" [class.disabled]='!loggedIn' routerLink='myrequists' routerLinkActive='active'>My Requists</a>
     </li>
   </ul>
-  <ul class="navbar-nav" [hidden]='!Isadmin'>
+  <ul class="navbar-nav" [hidden]='Isadmin'>
     <li class="nav-item">
       <a class="nav-link" routerLink='home' routerLinkActive='active'>Home</a>
     </li>
