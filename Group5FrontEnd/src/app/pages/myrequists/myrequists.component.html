@@ -1,9 +1,8 @@
 <div>
-    <h2>All Project</h2>
     <div class="container-fluid">
         <table class="table table-hover table-sm">
             <thead>
-                <th>Project name</th>
+                <th>Project Name</th>
                 <th>Description</th>
                 <th>Url</th>
                 <th>State</th>
@@ -17,7 +16,7 @@
                     <td>{{item.description}}</td>
                     <td><a href='{{item.url}}' target='_new'>{{item.url}}</a></td>
                     <td>{{item.state}}</td>
-                    <th>{{item.approvedBy}}</th>
+                    <td>{{item.approvedBy}}</td>
                     <!--<td><button class="btn-primary" (click)='update(item._id,item.name,item.url,item.groupMembers,item.description)' routerLink="/updateproject">update</button></td>
                     <td><button class="btn-danger" (click)='delate(item._id)'>delete</button></td>-->
                 </tr>

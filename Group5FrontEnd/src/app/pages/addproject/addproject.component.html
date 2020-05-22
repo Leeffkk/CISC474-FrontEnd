@@ -3,28 +3,28 @@
 <div class="center">
 <form id="form1" [formGroup]="projectForm" (ngSubmit)="submit()">
     <div class="form-group">
-        <label for="projectname"><strong>Project's Name</strong></label>
+        <label for="projectname"><strong>Project Name</strong></label>
         <input type="text" formControlName="projectname" class="form-control" [ngClass]="{ 'is-invalid': submitted && projectForm.controls.projectname.errors }" />
         <div *ngIf="submitted && projectForm.controls.projectname.errors" class="invalid-feedback">
             <div *ngIf="projectForm.controls.projectname.errors.required">Project's name is required</div>
         </div>
     </div>
     <div class="form-group">
-        <label for="projecturl"><strong>Project's Url</strong></label>
+        <label for="projecturl"><strong>Project Url</strong></label>
         <input type="url" formControlName="projecturl" class="form-control" [ngClass]="{ 'is-invalid': submitted && projectForm.controls.projecturl.errors }" />
         <div *ngIf="submitted && projectForm.controls.projecturl.errors" class="invalid-feedback">
             <div *ngIf="projectForm.controls.projecturl.errors.required">Project's Url is required</div>
         </div>
     </div>
     <div class="form-group">
-        <label for="groupmember"><strong>Group Member</strong></label>
+        <label for="groupmember"><strong>Group Members</strong></label>
         <input type="text" formControlName="groupmember" class="form-control" [ngClass]="{ 'is-invalid': submitted && projectForm.controls.groupmember.errors }" />
         <div *ngIf="submitted && projectForm.controls.groupmember.errors" class="invalid-feedback">
             <div *ngIf="projectForm.controls.groupmember.errors.required">Group member is required</div>
         </div>
     </div>
     <div class="form-group">
-        <label for="description"><strong>Description</strong></label>
+        <label for="description"><strong>Project Description</strong></label>
         <input type="text" formControlName="description" class="form-control" [ngClass]="{ 'is-invalid': submitted && projectForm.controls.description.errors }" />
         <div *ngIf="submitted && projectForm.controls.discription.errors" class="invalid-feedback">
             <div *ngIf="projectForm.controls.description.errors.required">description is required</div>
