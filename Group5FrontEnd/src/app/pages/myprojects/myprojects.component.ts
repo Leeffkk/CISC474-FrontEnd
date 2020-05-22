@@ -49,6 +49,11 @@ export class MyprojectsComponent implements OnInit {
   Committed(item){
     this.projSvc.checkProjectCommits(item.url).subscribe(a=>{
       this.github = a.data;
+      const dialogRef = this.dialog.open(MydialogComponent, {
+        width: '500px',
+        height: '500px',
+        data: {data : this.github},
+      });
     })
     const dialogRef = this.dialog.open(MydialogComponent, {
       width: '500px',
@@ -56,9 +61,6 @@ export class MyprojectsComponent implements OnInit {
       data: {data : this.github},
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
   }
   
   ngOnInit(): void {
