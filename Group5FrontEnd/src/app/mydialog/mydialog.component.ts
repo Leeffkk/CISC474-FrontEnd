@@ -18,6 +18,6 @@ export class MydialogComponent implements OnInit {
    }
 
   ngOnInit(): void {
-  }œ
+  }
 
 }

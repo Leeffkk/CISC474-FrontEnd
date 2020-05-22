@@ -17,6 +17,7 @@ import { MyrequistsComponent } from './pages/myrequists/myrequists.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MydialogComponent } from './mydialog/mydialog.component';
+import { UpdatePOPComponent } from './update-pop/update-pop.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { MydialogComponent } from './mydialog/mydialog.component';
     UpdateProjectComponent,
     ManageprojectComponent,
     MyrequistsComponent,
-    MydialogComponent
+    MydialogComponent,
+    UpdatePOPComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +42,8 @@ import { MydialogComponent } from './mydialog/mydialog.component';
     MatDialogModule
   ],
   entryComponents: [
-    MydialogComponent
+    MydialogComponent,
+    UpdatePOPComponent
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi:true}],
   bootstrap: [AppComponent]

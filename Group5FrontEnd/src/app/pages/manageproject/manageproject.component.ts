@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectsService } from 'src/app/services/projects.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { windowWhen } from 'rxjs/operators';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {UpdatePOPComponent} from '../../update-pop/update-pop.component'
 
 @Component({
   selector: 'app-manageproject',
@@ -16,7 +17,7 @@ export class ManageprojectComponent implements OnInit {
   error: string;
   returnUrl: string;
 
-  constructor(private projSvc:ProjectsService, private route: ActivatedRoute, private router: Router) { 
+  constructor(private projSvc:ProjectsService, private route: ActivatedRoute, private router: Router, public dialog: MatDialog) { 
     this.reloadPage();
   }
 
@@ -29,9 +30,12 @@ export class ManageprojectComponent implements OnInit {
       this.reloadPage();
   }
 
-  update(id, name, url, groupmember, description){
-    this.projSvc.SetIndex(id);
-    this.projSvc.SendInfo(name, url, groupmember, description);
+  update(item){
+    const dialogRef = this.dialog.open(UpdatePOPComponent, {
+      width: '800px',
+      height: '700px',
+      data: {data : item},
+    });
   }
   approve(id){
     this.projSvc.approveProject(id).subscribe(response=>{
