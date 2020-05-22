@@ -55,11 +55,6 @@ export class MyprojectsComponent implements OnInit {
         data: {data : this.github},
       });
     })
-    const dialogRef = this.dialog.open(MydialogComponent, {
-      width: '500px',
-      height: '500px',
-      data: {data : this.github},
-    });
 
   }
   
