@@ -6,8 +6,8 @@
             <thead>
                 <th>Project name</th>
                 <th>Description</th>
-                <th>Url</th>
                 <th>Group Members</th>
+                <th>Url</th>
                 <th></th>
                 <!--<th>Update</th>-->
                 <!--<th>Delate</th>-->
@@ -16,9 +16,9 @@
                 <tr *ngFor = 'let item of Projects'>
                     <td>{{item.name}}</td>
                     <td>{{item.description}}</td>
-                    <td><a href='{{item.url}}' target='_new'>{{item.url}}</a></td>
                     <td>{{item.groupMembers}}</td>
-                    <th><button mat-button class="btn-danger" (click)='Committed(item)'>Commit</button></th>
+                    <td><a href='{{item.url}}' target='_new'>{{item.url}}</a></td>
+                    <th><button mat-button class="btn-primary" (click)='Committed(item)'>Check Commit</button></th>
                     <!--<td><button class="btn-primary" (click)='update(item._id,item.name,item.url,item.groupMembers,item.description)' routerLink="/updateproject">update</button></td>
                     <td><button class="btn-danger" (click)='delate(item._id)'>delete</button></td>-->
                 </tr>
