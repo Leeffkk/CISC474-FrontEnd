@@ -52,6 +52,7 @@ export class UpdatePOPComponent implements OnInit {
       "{"+this.updateForm.controls.groupmember.value+"}",
       this.updateForm.controls.description.value).subscribe(response=>{
         this.dialogRef.close();
+        location.reload();
     },err=>{this.submitted=false;this.loading=false;this.error=err.message||err;});
   }
 
