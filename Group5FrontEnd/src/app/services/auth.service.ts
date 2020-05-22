@@ -83,6 +83,5 @@ export class AuthService {
     this.token=null;
     this.isAD=false;
     this.CurrentUser.next(null);
-    location.reload();
   }
 }
