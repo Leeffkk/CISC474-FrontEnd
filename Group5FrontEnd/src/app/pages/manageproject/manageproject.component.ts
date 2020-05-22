@@ -36,7 +36,10 @@ export class ManageprojectComponent implements OnInit {
       height: '700px',
       data: {data : item},
     });
-    this.projSvc.UpdateProject(item._id, item.name, item.url, item.groupmember, item.description);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+      this.projSvc.UpdateProject(item._id, item.name, item.url, item.groupmember, item.description);
+    });
     
   }
   approve(id){
