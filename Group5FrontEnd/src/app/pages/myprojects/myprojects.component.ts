@@ -11,32 +11,15 @@ import {MydialogComponent} from '../../mydialog/mydialog.component'
 })
 export class MyprojectsComponent implements OnInit {
 
-  Projects: any[] = [ {
-    "_id": "5ec1ef400f64c03cf47c7f77",
-    "name": "CISC4747",
-    "description": "a lot ...",
-    "groupid": null,
-    "groupMembers": "{test333@gmail.com, test3433. test1230}",
-    "semester": null,
-    "projectNumber": null
-},
-{
-    "_id": "5ec1ef76bc74ac4c2c0419f9",
-    "name": "CISC4747",
-    "description": "a lot ...",
-    "groupid": null,
-    "groupMembers": "{test333@gmail.com, test3433. test1230}",
-    "semester": null,
-    "projectNumber": null
-}];
+  Projects: any[] = [ ];
   Attribute: any[] = [ ];
   selectedproject = -1;
   error: string;
 
   constructor(private projSvc:ProjectsService, public dialog: MatDialog) { 
-    // projSvc.getProjectsByCurUser().subscribe(result=>{
-    //   this.Projects=result.data;
-    // })
+    projSvc.getProjectsByCurUser().subscribe(result=>{
+       this.Projects=result.data;
+    })
   }
 
   showDetail(index, project){
