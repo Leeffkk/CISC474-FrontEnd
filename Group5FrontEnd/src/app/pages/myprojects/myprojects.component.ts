@@ -15,6 +15,7 @@ export class MyprojectsComponent implements OnInit {
   Attribute: any[] = [ ];
   selectedproject = -1;
   error: string;
+  github: any[]=[ ];
 
   constructor(private projSvc:ProjectsService, public dialog: MatDialog) { 
     projSvc.getProjectsByCurUser().subscribe(result=>{
@@ -46,10 +47,13 @@ export class MyprojectsComponent implements OnInit {
     this.projSvc.SendInfo(name, url, groupmember, description);
   }
   Committed(item){
+    this.projSvc.checkProjectCommits(item.url).subscribe(a=>{
+      this.github = a.data;
+    })
     const dialogRef = this.dialog.open(MydialogComponent, {
       width: '500px',
       height: '500px',
-      data: {data : item},
+      data: {data : this.github},
     });
 
     dialogRef.afterClosed().subscribe(result => {

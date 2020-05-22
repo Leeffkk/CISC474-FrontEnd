@@ -1,5 +1,16 @@
-<h1 mat-dialog-title>{{item.name}}</h1>
-<mat-dialog-content class="mat-typography">
-    <p><strong>URL: </strong>{{item.url}}</p>
-    <p><strong>Description: </strong>{{item.description}}</p>
-  </mat-dialog-content>
+<table class="table table-hover table-sm">
+    <thead>
+        <th scope="col">Name</th>
+        <th scope="col">E-mail</th>
+        <th scope="col">Date</th>
+        <th scope="col">Message</th>
+    </thead>
+    <tbody>
+        <tr *ngFor = 'let git of item'>
+            <th scope="row">{{git.committer.name}}</th>
+            <td>{{git.committer.email}}</td>
+            <td>{{git.committer.date}}</td>
+            <td>{{git.message}}</td>
+        </tr>
+    </tbody>
+</table>

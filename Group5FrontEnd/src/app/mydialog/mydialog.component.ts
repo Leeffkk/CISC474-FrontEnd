@@ -14,6 +14,7 @@ export class MydialogComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) public course : data ) {
     //console.log(course.data[0]._id);
     this.item = course.data;
+    //this.item = []
    }
 
   ngOnInit(): void {

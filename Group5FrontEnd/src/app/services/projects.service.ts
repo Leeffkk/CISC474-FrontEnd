@@ -15,6 +15,8 @@ export class ProjectsService {
   GroupM: string;
   Descript: string;
 
+  github: any[]=[ ];
+
   getApprovedProjects(): Observable<any>{
     return this.http.get(this.path+'getApprovedProjects');
   }
@@ -39,6 +41,10 @@ export class ProjectsService {
   UpdateProject(id, name: string, url: string, groupmember: string, description: string): Observable<any>{
     return this.http.put(this.path+'',{id: id, name: name, url: url, groupMembers: groupmember, description: description});
   }
+  checkProjectCommits(url: string): Observable<any>{
+    return this.http.post(this.path+'checkProjectCommits',{url: url});
+  }
+
   deleteProject(id): Observable<any>{
     return this.http.post(this.path+'deleteProject',{id: id});
   }
