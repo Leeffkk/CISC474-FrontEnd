@@ -1,7 +1,7 @@
 <!--<div *ngIf="error" class="alert alert-danger">{{error}}</div>-->
 <div *ngIf="error" class="alert alert-danger">{{error}}</div>
 <div class="center">
-<form id="form1" [formGroup]="updateForm" (ngSubmit)="submit()">
+<form id="form1" [formGroup]="updateForm" (ngSubmit)="submit(item)">
     <div class="form-group">
         <label for="projectname"><strong>Project Name</strong></label>
         <input formControlName="projectname" class="form-control" [ngClass]="{ 'is-invalid': submitted && updateForm.controls.projectname.errors }" 

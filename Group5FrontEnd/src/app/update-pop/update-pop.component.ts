@@ -35,13 +35,13 @@ export class UpdatePOPComponent implements OnInit {
     });
   }
 
-  submit(){
+  submit(item){
     this.submitted=true;
     if (this.updateForm.invalid){
       return;
     }
     this.loading=true;
-    this.projSev.UpdateProject(this.index,this.updateForm.controls.projectname.value,
+    this.projSev.UpdateProject(item._id,this.updateForm.controls.projectname.value,
       this.updateForm.controls.projecturl.value,
       "{"+this.updateForm.controls.groupmember.value+"}",
       this.updateForm.controls.description.value).subscribe(response=>{
