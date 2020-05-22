@@ -11,7 +11,7 @@
         </div>
     </div>
     <div class="form-group">
-        <label for="projecturl"><strong></strong>Project Url</strong></label>
+        <label for="projecturl"><strong>Project Url</strong></label>
         <input formControlName="projecturl" class="form-control" [ngClass]="{ 'is-invalid': submitted && updateForm.controls.projecturl.errors }" 
         #textbox type="url" [(ngModel)]="item.url"/>
         <div *ngIf="submitted && updateForm.controls.projecturl.errors" class="invalid-feedback">
